@@ -5,4 +5,13 @@
 #ifndef TASK1_STATES_H
 #define TASK1_STATES_H
 
+enum STATES
+{
+    OFF,
+    WAIT,
+    ACCEPT,
+    CHECK,
+    COOK
+};
+
 #endif //TASK1_STATES_H
