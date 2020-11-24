@@ -65,8 +65,9 @@ bool Automata::check() {
 uint32_t Automata::cook() {
     if (this->state != STATES::COOK)
         return EXIT_FAILURE;
+    this->state = STATES::WAIT;
     this->bank += this->cash;
-    this->cash = 0;
+    this->cash -= this->menu[this->order].price;
     // Cooking...
     return this->order + 1;
 }
