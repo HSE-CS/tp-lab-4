@@ -17,6 +17,10 @@ private:
     double *prices;
     STATES state;
 
+    void cook();
+
+    void finish();
+
 public:
     Automata(string *menu, double *prices);
 
@@ -26,21 +30,17 @@ public:
 
     void coin(double _cash);
 
-    string* getMenu();
+    string* getMenu() const;
 
-    STATES getState();
+    STATES getState() const;
 
     double getCash() const;
 
     void choice(int _choice);
 
-    bool check(int _check);
+    bool check(int _check) const;
 
     void cancel();
-
-    void cook();
-
-    void finish();
 };
 
 

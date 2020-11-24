@@ -7,11 +7,11 @@
 
 enum STATES
 {
-    OFF,
-    WAIT,
-    ACCEPT,
-    CHECK,
-    COOK
+    OFF,    // 1
+    WAIT,   // 2
+    ACCEPT, // 3
+    CHECK,  // 4
+    COOK    // 5
 };
 
 #endif //TASK1_STATES_H

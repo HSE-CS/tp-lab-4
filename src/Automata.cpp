@@ -32,13 +32,13 @@ void Automata::coin(double _cash) {
     }
 }
 
-string *Automata::getMenu() {
+string *Automata::getMenu() const {
     if (state != OFF){
         return menu;
     } else return nullptr;
 }
 
-STATES Automata::getState() {
+STATES Automata::getState() const {
     return state;
 }
 
@@ -55,13 +55,14 @@ void Automata::choice(int _choice) {
     }
 }
 
-bool Automata::check(int _check) {
+bool Automata::check(int _check) const {
     return cash > prices[_check];
 }
 
 void Automata::cancel() {
     if (state == ACCEPT || state == CHECK){
         state = WAIT;
+        cash = 0;
     }
 }
 

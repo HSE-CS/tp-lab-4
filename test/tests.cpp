@@ -122,3 +122,14 @@ TEST(avtomat, test12)
     automata.cancel();
     EXPECT_EQ(WAIT, automata.getState());
 }
+
+TEST(avtomat, test13)
+{
+    string menu[]{};
+    double price[]{};
+    Automata automata{menu, price};
+    automata.on();
+    automata.coin(60);
+    automata.cancel();
+    EXPECT_EQ(0, automata.getCash());
+}
