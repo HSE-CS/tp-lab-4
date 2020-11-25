@@ -18,41 +18,80 @@ TEST(off, test3) {
   EXPECT_EQ(OFF, test.getState());
 }
 
-TEST(finish, test4) {
+TEST(finishing, test4) {
   Automata test;
   test.finish();
+
   EXPECT_EQ(WAIT, test.getState());
 }
 
-TEST(cash, test5) {
+TEST(canceling, test5) {
+  Automata test;
+  test.cancel();
+
+  EXPECT_EQ(WAIT, test.getState());
+}
+
+TEST(cash1, test6) {
   Automata test;
   test.on();
   test.coin(200);
-  EXPECT_EQ(200, test.cash_user);
+
+  EXPECT_EQ(200, test.cancel());
 }
 
-TEST(cash2, test6) {
+TEST(cash2, test7) {
   Automata test;
   test.on();
   test.coin(200);
   test.choice("herbal tea");
+  if (test.check())
+    test.cook();
+  else
+    test.cancel();
   test.choice("herbal tea");
+  if (test.check())
+    test.cook();
+  else
+    test.cancel();
   test.choice("herbal tea");
+  if (test.check())
+    test.cook();
+  else
+    test.cancel();
   test.choice("herbal tea");
-  EXPECT_EQ(200, test.cash_automata);
+  if (test.check())
+    test.cook();
+  else
+    test.cancel();
+
+  EXPECT_EQ(0, test.cancel());
 }
 
-TEST(cash3, test7) {
+TEST(cash3, test8) {
   Automata test;
   test.on();
-  test.coin(55);
-  EXPECT_EQ(55, test.cancel());
+  test.coin(45);
+  test.choice("herbal tea");
+
+  EXPECT_FALSE(test.check());
 }
 
-TEST(cash3, test7) {
+TEST(cash4, test9) {
   Automata test;
   test.on();
-  test.coin(55);
+  test.coin(50);
+  test.choice("herbal tea");
 
-  EXPECT_EQ(55, test.cancel());
+  EXPECT_TRUE(test.check());
 }
+
+TEST(menu, test10) {
+  Automata test;
+  test.on();
+  test.coin(50);
+  test.choice("herbal tea");
+
+  EXPECT_TRUE(test.check());
+}
+
