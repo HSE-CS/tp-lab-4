@@ -1,8 +1,8 @@
-#include "Automata.h"
+#include "automata.h"
 #include <iostream>
 
 int main() {
-  Automata hall;
+  automata hall;
   hall.on();
 
   std::cout << hall.getMenu();

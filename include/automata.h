@@ -8,7 +8,7 @@
 
 enum states {ON, OFF, WAIT};
 
-class Automata{
+class automata {
 private:
     int cash_user;
     int cash_automata;
@@ -18,7 +18,7 @@ private:
     states state;
 
 public:
-    Automata();
+  automata();
     void on();
     void off();
     void coin(int coins);
