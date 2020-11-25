@@ -17,19 +17,21 @@ int main() {
   if (hall.check())
     hall.cook();
   else
-    hall.cancel(); //not enough money return back 45 coins
+    std::cout << "not enough money" << std::endl;
 
-  //try again
-  hall.coin(10);
-  hall.coin(10);
-  hall.coin(10);
-  hall.coin(10);
-  hall.coin(5);
-  hall.coin(5);
+  hall.coin(10); //add money
 
-  hall.choice("herbal tea");
+  hall.choice("black tea");
   if (hall.check())
-    hall.cook();
+    hall.cook(); //take the first drink
   else
-    hall.cancel();
+    std::cout << "not enough money" << std::endl;
+
+  hall.choice("lemon tea");
+  if (hall.check())
+    hall.cook(); //take the second drink
+  else
+    std::cout << "not enough money" << std::endl;
+
+  hall.finish(); //take extra money back
 }

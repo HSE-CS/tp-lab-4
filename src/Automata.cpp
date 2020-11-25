@@ -55,6 +55,7 @@ states Automata::getState() {
 }
 
 void Automata::choice(const std::string& user_choice) {
+    this->choice_user = 0;
     for (auto &position : menu)
       if (position == user_choice)
         break;
@@ -79,17 +80,16 @@ int Automata::cancel() {
     this->cash_user = 0;
     this->choice_user = 0;
     this->state = WAIT;
-    std::cout << "Please, take your money back " << enter_coins << std::endl;
+    std::cout << "Please, take your extra money back " << enter_coins << std::endl;
     return enter_coins;
 }
 
 void Automata::cook() {
     this->cash_automata += prices[this->choice_user];
     this->cash_user -= prices[this->choice_user];
-    finish();
+    std::cout << "Thank u, take your drink, have a nice day"  << std::endl;
 }
 
 void Automata::finish() {
-    std::cout << "Thank u, take your drink, have a nice day"  << std::endl;
     cancel();
 }
