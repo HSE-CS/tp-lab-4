@@ -10,7 +10,9 @@
 #include "Automata.h"
 
 void Automata::on() {
-    state = WAIT;
+    if (state == OFF) {
+        state = WAIT;
+    }
 }
 
 void Automata::off() {
@@ -19,7 +21,7 @@ void Automata::off() {
 
 void Automata::coin(int money) {
     if (state == WAIT) {
-        cash += money;
+
         lastTransaction += money;
         state = ACCEPT;
     }
@@ -27,7 +29,7 @@ void Automata::coin(int money) {
 
 void Automata::cancel() {
     if (state == ACCEPT || state == CHECK) {
-        cash -= lastTransaction;
+        lastTransaction = 0; //возврат
         state = WAIT;
     }
 }
@@ -51,13 +53,15 @@ STATES Automata::getState() {
 void Automata::choice(int number) {
     if (state == ACCEPT) {
         state = CHECK;
-        this->check(number);
+        this->check(number - 1);
     }
 }
 
 void Automata::check(int number) {
     if (lastTransaction >= prices[number]){
         this->cook();
+        cash += prices[number];
+        lastTransaction = 0; //сдача
     }
     else {
         cancel();
@@ -72,3 +76,9 @@ void Automata::cook() {
 void Automata::finish() {
     state = WAIT;
 }
+
+long Automata::getCash() {
+    return cash;
+}
+
+

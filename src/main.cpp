@@ -19,7 +19,7 @@ int main() {
     automata1.on();
     cout << "State: "<< automata1.getState() << endl << endl;
 
-    automata1.coin(60);
+    automata1.coin(999);
     cout << "State: "<< automata1.getState() << endl << endl;
 
     auto* menu = new string [5];
@@ -30,7 +30,13 @@ int main() {
         cout << menu[i] << endl;
     }
 
+    automata1.choice(1);
+
+    /*automata1.coin(3);
     automata1.choice(2);
+
+    cout << automata1.getCash() << endl << endl;*/
+
     cout << endl << "Final State: "<< automata1.getState() << endl << endl;
 
 

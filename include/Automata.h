@@ -45,6 +45,8 @@ public:
     void cancel();
     void cook();
     void finish();
+
+    long getCash(); //для тестов
 };
 
 #endif //TASK1_AUTOMATA_H
