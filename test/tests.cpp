@@ -1,2 +1,6 @@
+/*
+ * @author Stanislav Stoianov
+ */
+
 #include "gtest/gtest.h"
-#include "Automata.h"
+#include "../include/automata.h"
