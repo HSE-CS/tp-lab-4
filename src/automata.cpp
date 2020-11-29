@@ -28,34 +28,34 @@ std::vector<PRODUCT> Automata::menu = {
 };
 
 Automata::Automata() {
-    this->status = STATUS::OFF;
+    this->state = STATE::OFF;
     this->cash = 0;
     this->order = 0;
 }
 
 bool Automata::on() {
-    if (this->status != STATUS::OFF) return false;
-    this->status = STATUS::WAIT;
+    if (this->state != STATE::OFF) return false;
+    this->state = STATE::WAIT;
     printf("[%s] INFO: Вендинговая машина включена\n",
            getCurrentTime());
     return true;
 }
 
 bool Automata::off() {
-    if (this->status != STATUS::WAIT) return false;
-    this->status = STATUS::OFF;
+    if (this->state != STATE::WAIT) return false;
+    this->state = STATE::OFF;
     printf("[%s] INFO: Вендинговая машина выключена\n",
            getCurrentTime());
     return true;
 }
 
 bool Automata::coin(unsigned int money) {
-    if (this->status != STATUS::WAIT && this->status != STATUS::ACCEPT) {
+    if (this->state != STATE::WAIT && this->state != STATE::ACCEPT) {
         printf("[%s] INFO: Деньги не были положены на депозит, неверное состояние машины\n",
                getCurrentTime());
         return false;
     } else {
-        this->status = STATUS::ACCEPT;
+        this->state = STATE::ACCEPT;
         this->cash += money;
         printf("[%s] INFO: Деньги были положены на депозит, на счёту %u\n",
                getCurrentTime(), this->getCash());
@@ -64,10 +64,10 @@ bool Automata::coin(unsigned int money) {
 }
 
 bool Automata::choice(unsigned int orderNum) {
-    if (this->status == STATUS::ACCEPT) {
+    if (this->state == STATE::ACCEPT) {
         if (orderNum == 0 || orderNum > Automata::menu.size())
             return false;
-        this->status = STATUS::CHECK;
+        this->state = STATE::CHECK;
         this->order = orderNum - 1;
         printf("[%s] INFO: Напиток %s выбран, проверка денежных средств...\n",
                getCurrentTime(), menu[this->getChoice()].name.c_str());
@@ -93,12 +93,12 @@ bool Automata::check() {
 }
 
 bool Automata::cancel() {
-    if (this->status != STATUS::ACCEPT && this->status != STATUS::CHECK) {
+    if (this->state != STATE::ACCEPT && this->state != STATE::CHECK) {
         printf("[%s] ERROR: Невозможно сделать отмену\n",
                getCurrentTime());
         return false;
     } else {
-        this->status = STATUS::WAIT;
+        this->state = STATE::WAIT;
         this->order = 0;
         printf("[%s] INFO: Машина переведена в состояние ожидания, выбор очищен\n",
                getCurrentTime());
@@ -107,7 +107,7 @@ bool Automata::cancel() {
 }
 
 bool Automata::cook() {
-    this->status = STATUS::COOK;
+    this->state = STATE::COOK;
     printf("[%s] INFO: Напиток готовится...\n",
            getCurrentTime());
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
@@ -117,7 +117,7 @@ bool Automata::cook() {
 }
 
 bool Automata::finish() {
-    this->status = STATUS::WAIT;
+    this->state = STATE::WAIT;
     printf("[%s] INFO: Машина переведена в статус ожидания\n",
            getCurrentTime());
     return true;
@@ -135,4 +135,8 @@ unsigned int Automata::getCash() const {
 
 unsigned int Automata::getChoice() const {
     return this->order;
+}
+
+STATE Automata::getState() {
+    return this->state;
 }

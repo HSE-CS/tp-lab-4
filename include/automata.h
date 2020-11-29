@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-enum class STATUS {
+enum class STATE {
     OFF, WAIT, ACCEPT, CHECK, COOK
 };
 
@@ -24,7 +24,7 @@ private:
 
     unsigned int order;
 
-    STATUS status;
+    STATE state;
 
     static std::vector<PRODUCT> menu;
 
@@ -53,6 +53,7 @@ public:
 
     static void getMenu();
 
+    STATE getState();
 };
 
 #endif
