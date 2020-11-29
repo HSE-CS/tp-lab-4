@@ -48,13 +48,13 @@ if (BUILD_TESTS)
   ##############
   # Unit Tests
   ##############
-  add_executable(runUnitTests ${TEST_SRC_FILES} src/automata.cpp include/automata.h src/main.cpp)
+  add_executable(runUnitTests ${TEST_SRC_FILES})
 
   # Standard linking to gtest stuff.
   target_link_libraries(runUnitTests gtest gtest_main)
 
   # Extra linking for the project.
-  #target_link_libraries(runUnitTests task1_lib task2_lib task3_lib)
+  target_link_libraries(runUnitTests task_lib)
 
   # This is so you can do 'make test' to see all your tests run, instead of
   # manually running the executable runUnitTests to see those specific tests.
