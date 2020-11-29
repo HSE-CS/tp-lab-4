@@ -15,6 +15,7 @@ int main() {
     automata->coin(0);
     automata->choice(6);
     automata->off();
+    delete(automata);
     return 0;
 }
 
