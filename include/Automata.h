@@ -34,7 +34,7 @@ public:
         state = OFF;
         cash = 0;
         lastTransaction = 0;
-    }
+    };
     void on();
     void off();
     void coin(int money);
