@@ -9,7 +9,7 @@
 using namespace std;
 
 int main () {
-    string menu[]{"coca cola", "sprite", "fanta"};
+/*    string menu[]{"coca cola", "sprite", "fanta"};
     double price[]{55, 59.90, 50};
     Automata automata{menu, price};
 
@@ -30,5 +30,5 @@ int main () {
     cout << STATES(automata.getState()) << " " << automata.getCash() << endl;
 
     automata.off();
-    cout << STATES(automata.getState()) << endl;
+    cout << STATES(automata.getState()) << endl;*/
 }
