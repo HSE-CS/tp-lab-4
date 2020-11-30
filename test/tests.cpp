@@ -75,7 +75,7 @@ TEST(cook, expect_error)
 	machine.coin(10);
 	machine.choice(1); // cost = 20
 	machine.check();
-	EXPECT_TRUE(machine.cook())
+	EXPECT_TRUE(machine.cook());
 }
 
 TEST(cook, expect_no_error)
@@ -86,7 +86,7 @@ TEST(cook, expect_no_error)
 	machine.coin(10);
 	machine.choice(1); // cost = 20
 	machine.check();
-	EXPECT_FALSE(machine.cook())
+	EXPECT_FALSE(machine.cook());
 }
 
 TEST(cook, expect_order1)
@@ -118,7 +118,7 @@ TEST(cancel, expect_extra1)
 	machine.on();
 	machine.coin(10);
 	machine.coin(10);
-	EXPECT_EQ(20, machine.cancel())
+	EXPECT_EQ(20, machine.cancel());
 }
 
 TEST(cancel, expect_extra2)
@@ -127,7 +127,7 @@ TEST(cancel, expect_extra2)
 	machine.on();
 	machine.coin(50);
 	machine.choice(2); // cost = 40
-	machine.check()
+	machine.check();
 	machine.cook();
-	EXPECT_EQ(10, machine.cancel()) // 50 - 40 = 10
+	EXPECT_EQ(10, machine.cancel()); // 50 - 40 = 10
 }
