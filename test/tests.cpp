@@ -10,7 +10,7 @@ TEST(initialize, expect_no_error) {
     EXPECT_FALSE(machine.off());
 }
 
-TEST(initialize, expect_no_error) {
+TEST(initialize2, expect_no_error) {
     Automata machine;
     EXPECT_TRUE(machine.on());
 }
@@ -39,21 +39,21 @@ TEST(choice, expect_no_error) {
     EXPECT_FALSE(machine.choice(15));
 }
 
-TEST(choice, expect_no_error) {
+TEST(choice2, expect_no_error) {
     Automata machine;
     machine.on();
     machine.coin(50);
     EXPECT_TRUE(machine.choice(3));
 }
 
-TEST(choice, expect_no_error) {
+TEST(choice3, expect_no_error) {
     Automata machine;
     machine.on();
     machine.coin(10);
     EXPECT_FALSE(machine.choice(1));
 }
 
-TEST(choice, expect_no_error) {
+TEST(choice4, expect_no_error) {
     Automata machine;
     machine.on();
     machine.coin(6);
@@ -61,7 +61,7 @@ TEST(choice, expect_no_error) {
     EXPECT_TRUE(machine.choice(1));
 }
 
-TEST(choice, expect_no_error) {
+TEST(choice5, expect_no_error) {
     Automata machine;
     machine.on();
     machine.coin(10);
@@ -74,7 +74,7 @@ TEST(cancel, expect_no_error) {
     EXPECT_FALSE(machine.cancel());
 }
 
-TEST(cancel, expect_no_error) {
+TEST(cancel2, expect_no_error) {
     Automata machine;
     machine.on();
     machine.coin(7);
