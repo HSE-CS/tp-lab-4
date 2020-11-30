@@ -75,7 +75,7 @@ TEST(cook, expect_error)
 	machine.coin(10);
 	machine.choice(1); // cost = 20
 	machine.check();
-	EXPECT_TRUE(machine.cook());
+	EXPECT_EQ(0, machine.cook()); // order not returned
 }
 
 TEST(cook, expect_no_error)
@@ -86,7 +86,7 @@ TEST(cook, expect_no_error)
 	machine.coin(10);
 	machine.choice(1); // cost = 20
 	machine.check();
-	EXPECT_FALSE(machine.cook());
+	EXPECT_EQ(1, machine.cook()); // order #1 returned
 }
 
 TEST(cook, expect_order1)
