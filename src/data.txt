@@ -1,0 +1,4 @@
+coca-cola 60.0
+fanta 50.0
+sprite 55.0
+coffee 30.0
