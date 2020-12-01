@@ -1,4 +1,4 @@
-#include "Automata.h"
+#include "automata.h"
 #include <iostream>
 
 using namespace std;
