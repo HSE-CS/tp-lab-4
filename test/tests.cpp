@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+#include "Automata.h"
 //#include "pch.h"
 //#include "../Tp-Lab4/Automata.cpp"
 
