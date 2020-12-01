@@ -22,7 +22,7 @@ TEST(automata, test3)
     Automata automata;
     automata.on();
     automata.off();
-    States tmp = automata.getState();
+    STATES tmp = automata.getState();
     EXPECT_EQ(STATES::OFF, tmp);
 }
 
@@ -31,7 +31,7 @@ TEST(automata, test4)
    Automata automata;
    automata.on();
    automata.coin(174);
-   States tmp = automata.getState();
+   STATES tmp = automata.getState();
    EXPECT_EQ(STATES::ACCEPT, tmp);
 }
 
@@ -59,7 +59,7 @@ TEST(automata, test7)
     automata.on();
     automata.coin(174);
     automata.choice(1);
-    States tmp = automata.getState();
+    STATES tmp = automata.getState();
    EXPECT_EQ(STATES::CHECK, tmp);   
 }
 
@@ -70,7 +70,7 @@ TEST(automata, test8)
     automata.coin(174);
     automata.choice(1);
     automata.cook ();
-    States tmp = automata.getState();
+    STATES tmp = automata.getState();
     EXPECT_EQ(STATES::COOK, tmp);   
 }
 
@@ -82,7 +82,7 @@ TEST(automata, test9)
     automata.choice(1);
     automata.cook ();
     automata.finish();
-    States tmp = automata.getState();
+    STATES tmp = automata.getState();
     EXPECT_EQ(STATES::WAIT, tmp);    
 }
 
