@@ -51,10 +51,13 @@ if (BUILD_TESTS)
   add_executable(runUnitTests ${TEST_SRC_FILES})
 
   # Standard linking to gtest stuff.
-  target_link_libraries(runUnitTests gtest gtest_main)
+  target_link_libraries(runUnitTests lib gtest_main)
 
   # Extra linking for the project.
+
+
   #target_link_libraries(runUnitTests task_lib)
+
 
   # This is so you can do 'make test' to see all your tests run, instead of
   # manually running the executable runUnitTests to see those specific tests.
