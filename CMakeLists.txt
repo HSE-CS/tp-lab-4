@@ -48,7 +48,7 @@ if (BUILD_TESTS)
   ##############
   # Unit Tests
   ##############
-  add_executable(runUnitTests ${TEST_SRC_FILES})
+  add_executable(runUnitTests ${TEST_SRC_FILES} include/automata.h src/automata.cpp src/main.cpp)
 
   # Standard linking to gtest stuff.
   target_link_libraries(runUnitTests gtest gtest_main)
