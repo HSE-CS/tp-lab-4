@@ -38,6 +38,7 @@ void Automata::check(size_t index) {
 void Automata::cook(size_t index) {
     status = STATES::COOK;
     cash -= prices[index];
+    for (int i = 0; i < INT_MAX; ++i){}
     std::cout << "DONE: " << menu[index] << "\n";
     finish();
 }
