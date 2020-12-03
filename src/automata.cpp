@@ -3,7 +3,8 @@
 //
 
 #include "automata.h"
-#include<string>
+#include <string>
+#include <climits>
 
 void Automata::on() {
     status = STATES::WAIT;
