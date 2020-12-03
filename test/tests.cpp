@@ -2,38 +2,38 @@
 #include "gtest/gtest.h"
 
 TEST(constructor, test1) {
-  Automata test;
+  automata test;
   EXPECT_EQ(OFF, test.getState());
 }
 
 TEST(on, test2) {
-  Automata test;
+  automata test;
   test.on();
   EXPECT_EQ(WAIT, test.getState());
 }
 
 TEST(off, test3) {
-  Automata test;
+  automata test;
   test.off();
   EXPECT_EQ(OFF, test.getState());
 }
 
 TEST(finishing, test4) {
-  Automata test;
+  automata test;
   test.finish();
 
   EXPECT_EQ(WAIT, test.getState());
 }
 
 TEST(canceling, test5) {
-  Automata test;
+  automata test;
   test.cancel();
 
   EXPECT_EQ(WAIT, test.getState());
 }
 
 TEST(cash1, test6) {
-  Automata test;
+  automata test;
   test.on();
   test.coin(200);
 
@@ -41,7 +41,7 @@ TEST(cash1, test6) {
 }
 
 TEST(cash2, test7) {
-  Automata test;
+  automata test;
   test.on();
   test.coin(200);
   test.choice("herbal tea");
@@ -69,7 +69,7 @@ TEST(cash2, test7) {
 }
 
 TEST(cash3, test8) {
-  Automata test;
+  automata test;
   test.on();
   test.coin(45);
   test.choice("herbal tea");
@@ -78,7 +78,7 @@ TEST(cash3, test8) {
 }
 
 TEST(cash4, test9) {
-  Automata test;
+  automata test;
   test.on();
   test.coin(50);
   test.choice("herbal tea");
@@ -87,7 +87,7 @@ TEST(cash4, test9) {
 }
 
 TEST(menu, test10) {
-  Automata test;
+  automata test;
   test.on();
   test.coin(50);
   test.choice("herbal tea");
