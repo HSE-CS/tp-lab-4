@@ -15,27 +15,27 @@ TEST(AutomataTest, test2) {
 
 TEST(AutomataTest, test3) {
     Automata test;
-    test.getCoin(10);
+    test.coin(10);
     EXPECT_EQ(test.getState(), ACCEPT);             // меняется ли статус на ACCEPT
 }
 
 TEST(AutomataTest, test4) {
     Automata test;
-    test.getCoin(10);
+    test.coin(10);
     test.choice(1);
     EXPECT_EQ(test.getState(), WAIT);             // меняется ли статус на ACCEPT, если мало денег
 }
 
 TEST(AutomataTest, test5) {
     Automata test;
-    test.getCoin(40);
+    test.coin(40);
     test.choice(1);
     EXPECT_EQ(test.getState(), WAIT);             // меняется ли статус на ACCEPT, если достаточно денег
 }
 
 TEST(AutomataTest, test6) {
     Automata test;
-    test.getCoin(1);
+    test.coin(1);
     test.finish();
     EXPECT_EQ(test.getState(), 1);              // меняется ли статус при окончании работы
 }
@@ -54,8 +54,8 @@ TEST(AutomataTest, test8) {
 
 TEST(AutomataTest, test9) {
     Automata test;
-    test.getCoin(10);
-    test.getCoin(30);
+    test.coin(10);
+    test.coin(30);
     EXPECT_EQ(test.getCoin(), 40);             // суммируются ли деньги
 }
 
