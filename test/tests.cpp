@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "Automata.h"
+#include "automata.h"
 
 
 TEST(Automata, check_state_on) {  // 1
