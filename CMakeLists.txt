@@ -56,6 +56,7 @@ if (BUILD_TESTS)
   # Extra linking for the project.
   target_link_libraries(runUnitTests task1_lib task2_lib task3_lib)
 
+
   # This is so you can do 'make test' to see all your tests run, instead of
   # manually running the executable runUnitTests to see those specific tests.
   add_test(UnitTests runUnitTests)
