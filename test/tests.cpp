@@ -26,7 +26,7 @@ TEST(automata, test3)
     automata.on();
     automata.off();
 
-    States tmp = automata.getState();
+    STATES tmp = automata.getState();
     EXPECT_EQ(STATES::OFF, tmp);
 }
 
@@ -86,7 +86,7 @@ TEST(automata, test8)
     unsigned int price = prices[drink];
     automata.coin(price + 50);
     automata.choice(drink);
-    STATES tmp = automata.getStates();
+    STATES tmp = automata.getState();
     EXPECT_EQ(STATES::WAIT, tmp);
 }
 
@@ -100,7 +100,7 @@ TEST(automata, test9)
     unsigned int price = prices[drink];
     automata.coin(price - 5);
     automata.choice(drink);
-    STATES tmp = automata.getStates();
+    STATES tmp = automata.getState();
     EXPECT_EQ(STATES::WAIT, tmp);
 }
 
